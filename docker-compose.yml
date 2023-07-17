@@ -1,0 +1,16 @@
+
+version: "4"
+
+services:
+  mysquid:
+    container_name: mysquid
+    ports:
+      - 3128:3128
+    build:
+      ./
+    volumes:
+      - ./squid_log:/var/log/squid/
+      - ./squid_etc:/etc/squid/
+      - ./squid_spool:/var/spool/squid/
+
+#docker run -d --name squid-container -e TZ=UTC -p 3128:3128 ubuntu/squid:5.2-22.04_beta
